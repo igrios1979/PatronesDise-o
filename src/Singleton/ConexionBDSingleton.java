@@ -1,4 +1,4 @@
-package org.ignacio.rios;
+package Singleton;
 
 public class ConexionBDSingleton {
 
