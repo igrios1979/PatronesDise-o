@@ -107,3 +107,63 @@ class PizzaShop {
 En este ejemplo, la clase `Pizza` define la interfaz común para todas las pizzas. La clase `BasicPizza` implementa la interfaz y proporciona una implementación básica de la funcionalidad. La clase abstracta `PizzaDecorator` es la base para los decoradores y mantiene una referencia al componente `Pizza`. Las clases `CheesePizza` y `VeggiePizza` son decoradores concretos que agregan responsabilidades adicionales al componente `Pizza`.
 
 La clase `PizzaShop` es un ejemplo de uso del patrón. Se crea una instancia de `BasicPizza` y se decoran con `CheesePizza` y `VeggiePizza`. Se imprime el costo final de la pizza en cada caso.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+El patrón **Composite** es un patrón de diseño estructural que se utiliza para representar jerarquías de objetos en una estructura de árbol. En Java, el patrón Composite se implementa mediante la creación de una interfaz común que define las operaciones comunes para todos los objetos en la estructura de árbol, y la creación de dos clases: una clase Leaf que representa los objetos individuales de la estructura y una clase Composite que representa una colección de objetos.
+
+A continuación, se muestra un ejemplo de implementación del patrón Composite en Java
+
+    `// Componente
+    public interface Componente {
+        public void agregar(Componente componente);
+        public void eliminar(Componente componente);
+        public Componente obtenerHijo(int index);
+        public void operacion();
+    }
+    
+    // Objeto Hoja
+    public class ObjetoHoja implements Componente {
+        public void agregar(Componente componente) {
+            // No se puede agregar a un objeto hoja
+        }
+    
+        public void eliminar(Componente componente) {
+            // No se puede eliminar de un objeto hoja
+        }
+    
+        public Componente obtenerHijo(int index) {
+            // No hay hijos en un objeto hoja
+            return null;
+        }
+    
+        public void operacion() {
+            // Operación específica de objeto hoja
+        }
+    }
+    
+    // Objeto Compuesto
+    public class ObjetoCompuesto implements Componente {
+        private List<Componente> componentes = new ArrayList<Componente>();
+    
+        public void agregar(Componente componente) {
+            componentes.add(componente);
+        }
+    
+        public void eliminar(Componente componente) {
+            componentes.remove(componente);
+        }
+    
+        public Componente obtenerHijo(int index) {
+            return componentes.get(index);
+        }
+    
+        public void operacion() {
+            // Operación común a todos los objetos compuestos
+            for (Componente componente : componentes) {
+                componente.operacion();
+            }
+        }
+    }` 
+
+En este ejemplo, `Componente` es la interfaz común que define las operaciones comunes para todos los objetos en la estructura de árbol. `ObjetoHoja` es una clase que representa los objetos individuales de la estructura, mientras que `ObjetoCompuesto` es una clase que representa una colección de objetos. Los métodos `agregar`, `eliminar` y `obtenerHijo` se implementan en ambas clases, pero sólo `ObjetoCompuesto` implementa el método `operacion`, que realiza una operación común a todos los objetos compuestos y sus hijos.
+
+En resumen, el patrón ***Composite es una forma efectiva de representar jerarquías de objetos en una estructura de árbol en Java***, lo que permite tratar a los objetos individuales y los objetos compuestos de la misma manera.
