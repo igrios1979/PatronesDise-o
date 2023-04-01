@@ -167,3 +167,14 @@ A continuación, se muestra un ejemplo de implementación del patrón Composite 
 En este ejemplo, `Componente` es la interfaz común que define las operaciones comunes para todos los objetos en la estructura de árbol. `ObjetoHoja` es una clase que representa los objetos individuales de la estructura, mientras que `ObjetoCompuesto` es una clase que representa una colección de objetos. Los métodos `agregar`, `eliminar` y `obtenerHijo` se implementan en ambas clases, pero sólo `ObjetoCompuesto` implementa el método `operacion`, que realiza una operación común a todos los objetos compuestos y sus hijos.
 
 En resumen, el patrón ***Composite es una forma efectiva de representar jerarquías de objetos en una estructura de árbol en Java***, lo que permite tratar a los objetos individuales y los objetos compuestos de la misma manera.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Patrón de Diseño Observador en Java
+
+En el contexto de programación en Java, "patrón de diseño observador" (_Observer design pattern_ en inglés) es un patrón de diseño de software que se utiliza para establecer una relación uno-a-muchos entre objetos, de manera que cuando un objeto cambia su estado, todos los objetos que dependen de él sean notificados y actualicen su estado automáticamente.
+
+En este patrón de diseño, hay dos tipos de objetos: el objeto observado (también conocido como sujeto) y los objetos observadores. El objeto observado mantiene una lista de los objetos observadores que dependen de él, y cuando cambia su estado, notifica a todos los objetos observadores de forma automática.
+
+En Java, este patrón de diseño se implementa mediante una interfaz `Observable` y una interfaz `Observer`. La interfaz `Observable` se utiliza para definir los objetos observados, mientras que la interfaz `Observer` se utiliza para definir los objetos observadores. La clase `Observable` proporciona los métodos necesarios para agregar y eliminar objetos observadores de su lista, así como para notificar a los objetos observadores de cualquier cambio en su estado.
+
+Por lo tanto, si necesitas implementar un patrón de diseño observador en Java, puedes crear una clase que extienda la clase `Observable` y que contenga los métodos para agregar, eliminar y notificar a los objetos observadores. También puedes crear una clase que implemente la interfaz `Observer` y que defina los métodos para actualizar el estado del objeto observador cuando sea notificado de un cambio en el objeto observado.
