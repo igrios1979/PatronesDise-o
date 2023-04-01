@@ -67,13 +67,13 @@ public class Directorio extends Componente { // se compone de un listade compone
         if(this.nombre.equalsIgnoreCase(nombre)){
             return true;
         }
-         for(Componente h : this.hijos){
+     /*    for(Componente h : this.hijos){
              if(h.buscar(nombre)){
                  return true;
              }
 
-         }
-        return false;
+         }*/
+        return hijos.stream().anyMatch(h->h.buscar(nombre));
 
          }
 
